@@ -790,7 +790,7 @@ public strictfp class RandomForest implements java.io.Serializable {
             
             if(retn[i][1] < MIN_VARIANCE_RESULT)
             {
-            	System.err.println("[WARN]: Variance is less than " + MIN_VARIANCE_RESULT + " > " + retn[i][1]);
+//            	System.err.println("[WARN]: Variance is less than " + MIN_VARIANCE_RESULT + " > " + retn[i][1]);
             	assert(retn[i][1] > MIN_VARIANCE_RESULT); //Assert negative variance only comes from numerical issues (and they shouldn't make it too small)
             }
             retn[i][1] = Math.max(forest.minVariance, retn[i][1]);
@@ -914,7 +914,7 @@ public strictfp class RandomForest implements java.io.Serializable {
             
             if(retn[i][1] < MIN_VARIANCE_RESULT) 
             {
-            	System.err.println("[WARN]: Variance is less than " + MIN_VARIANCE_RESULT + " > " + retn[i][1]);
+            	//System.err.println("[WARN]: Variance is less than " + MIN_VARIANCE_RESULT + " > " + retn[i][1]);
             	assert(retn[i][1] > MIN_VARIANCE_RESULT); //Assert negative variance only comes from numerical issues (and they shouldn't make it too small)
             }
            

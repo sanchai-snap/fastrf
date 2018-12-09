@@ -71,22 +71,26 @@ public class CsvToDataConverter implements java.io.Serializable {
 			if( csvHeader[i].trim().toLowerCase().startsWith("performance")){
 				if (responseIndex != -1){
 					System.out.println("ERROR. Only one column in the input CSV is allowed to start with the string performance, but there are multiple ones. Please fix this; I'm exiting.");
-					System.exit(-1);
+//					System.exit(-1);
+					return;
 				}
 				responseIndex = i;
 			}
 		}
 		if (responseIndex == -1){
 			System.out.println( "ERROR. In the input CSV, the header for the column with the response to be optimized must start with the string performance (that's how it is detected). Please fix this; I'm exiting." );
-			System.exit(-1);						
+//			System.exit(-1);
+			return;
 		}
 		if( paramIndices.isEmpty() ){
 			System.out.println("ERROR. At least one column in the input CSV has to hold a parameter (the header for parameter columns starts with the string Parameter). Please fix this; I'm exiting.");
-			System.exit(-1);			
+//			System.exit(-1);
+			return;
 		}
 		if( featureIndices.isEmpty() ){
 			System.out.println("ERROR. At least one column in the input CSV has to hold a feature (the header for feature columns starts with the string Feature). Please fix this; I'm exiting.");
-			System.exit(-1);			
+//			System.exit(-1);
+			return;
 		}
 		
 		//== Construct thetaColIdx, xColIdx, and yColIdx.  
@@ -313,7 +317,8 @@ public class CsvToDataConverter implements java.io.Serializable {
 			}
 			if(testXColIdxs[i] == -1){
 				System.out.println("Error: test CSV does not contain one of the features of the training file: " + csvHeader[xColIdxs[i]] + ". Please fix this; I'm exiting.");
-				System.exit(-1);
+//				System.exit(-1);
+				return new double[0][0];
 			}
 		}
 		
